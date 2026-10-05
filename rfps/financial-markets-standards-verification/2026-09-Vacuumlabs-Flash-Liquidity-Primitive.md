@@ -118,9 +118,11 @@ No backward compatibility impact. All code is new packages.
 
 ## Milestones and Deliverables
 
-Development spans approximately 19 weeks from project start, followed by a twelve month maintenance.
+Development spans approximately 19 weeks from project start, with 12 months including maximum time to fulfill the adoption gates, followed by a twelve month maintenance.
 
-Amounts are set out under Funding. Milestones 2, 3 and 4 each carry an adoption gate, per the [Adoption Based Payments table](#adoption-based-payments).
+Amounts are set out under Funding. Milestones 2 and 3 each carry an adoption gate, per the [Adoption Based Payments table](#adoption-based-payments).
+
+Milestone 4 is the maintenance period, and its fixed payment is not gated by adoption. Maintenance requires ongoing engineering effort, so the payment for Milestone 4 is made in full whether or not its adoption targets are met. Those targets are paid separately, as adoption based payments.
 
 ### Milestone 1: Flash liquidation primitive, and the requirements that make it possible
 
@@ -153,7 +155,7 @@ _The primitive as a usable library:_
 
 ### Milestone 2: Multi participant measurement, benchmark report and settlement compatibility test kit
 
-**Estimated Duration:** Maximum of 6 months from the beginning of Milestone 2, set by adoption gate
+**Estimated Duration:** 5 weeks for technical delivery, and a maximum of 6 months from the beginning of Milestone 2, set by adoption gate.
 
 **Focus:** Replace structural arguments with numbers on a real multi participant deployment, so that the remaining single participant conditions of Milestone 1 are lifted and confirmation latency, contention and armed context lifetime are measured rather than argued.
 
@@ -188,7 +190,7 @@ _Settlement compatibility test kit:_
 
 ### Milestone 3: Production hardening, real fee parameters, and security review
 
-**Estimated Duration:** Maximum of 6 months from the beginning of Milestone 3, set by adoption gate.
+**Estimated Duration:** 2 weeks for technical delivery, and a maximum of 6 months from the beginning of Milestone 3, set by adoption gate.
 
 **Focus:** Everything between "the mechanism works" and "an institution would put liquidity behind it", closing the zero fee conditions and the standing privacy leak.
 
@@ -219,12 +221,12 @@ _Settlement compatibility test kit:_
 - Integration support for teams adopting the primitive or the compatibility kit.
 - A written maintenance handover plan at the end of the window, naming one of three outcomes: continued stewardship, a named successor maintainer, or archival with a clear statement of state.
 
-**Adoption Gate:** **500,000 CC**
+**Adoption Target:** **500,000 CC**
 
 - 2 parties other than Vacuumlabs exercising the primitive on MainNet (row A4, **100,000 CC** each), per the [Adoption Based Payments table](#adoption-based-payments).
 - 2 external protocols adopting the primitive and allowing flash borrowing from their own vault on MainNet (row A5, **150,000 CC** each), per the [Adoption Based Payments table](#adoption-based-payments).
 
-**Adoption Gate Deadline:** 12 months from beginning of M4.
+**Adoption Target Deadline:** 12 months from beginning of M4.
 
 ## Acceptance Criteria
 
@@ -239,8 +241,10 @@ Milestone specific acceptance conditions:
 
 - **Milestone 1:** the pool and borrower action interface are public, the package manifest is published, the full test suite passes on a real participant, and the one command reproduction runs clean. The provisional latency number is published, whatever the number is. A bad number is an accepted outcome here, as it is in Milestone 2. The flash liquidation path clears end to end on a real participant, both negative tests reject as designed, and the requirements have gone out to the DeFi Protocols and Liquidity SIG.
 - **Milestone 2:** the multi participant deployment is live, and the benchmark report is published with the economic envelope stated and submitted to both SIGs. Whether either SIG grants a presentation slot is not ours to decide, so acceptance turns on submission rather than on the slot. The compatibility kit runs clean against both reference registries, the compatibility profile is published, and the kit has been run against at least one registry written outside this project where one was available to us, with that result published either way.
-- **Milestone 3:** fee arithmetic holds under non-zero parameters, the privacy leak is closed, the threat model is published with its open items closed or explicitly accepted, and either the primitive is exercised on DevNet or the report explaining why the armed context cannot be configured there is published. The external security review is commissioned within this milestone, with its scope and quote agreed. Its findings and our responses are published on receipt, which may fall after the milestone closes.
+- **Milestone 3:** fee arithmetic holds under non-zero parameters, the privacy leak is closed, the threat model is published with its open items closed or explicitly accepted, and the primitive is deployed and exercised on TestNet. The external security review is commissioned within this milestone, with its scope and quote agreed. Its findings and our responses are published on receipt, which may fall after the milestone closes.
 - **Milestone 4:** each period's maintenance commitments are delivered and the final handover plan is written.
+
+Milestones with adoption gates require the adoption gate events to pass completely before moving to the next milestone.
 
 ## Funding
 
@@ -248,13 +252,15 @@ Milestone specific acceptance conditions:
 
 **2,730,000 CC**
 
-**1,130,000 CC** (46.5%) fixed for development, plus **300,000 CC** (12.3%) fixed for maintenance, plus a ring-fenced **300,000 CC** ceiling for the external security review, plus up to **1,000,000 CC** (41.2%) adoption based.
+**1,130,000 CC** (46.5%) fixed for development, plus **300,000 CC** (12.3%) fixed for maintenance, plus up to **1,000,000 CC** (41.2%) adoption based.
 
-The review ceiling is an upper bound. Only the reviewer's accepted quote is drawn against it, and any remainder is never requested.
+There is also a ring-fenced **300,000 CC** ceiling for the external security review. Only the reviewer's accepted quote is drawn against it, and any remainder is never requested. 
+
+> The percentage figures are against 2,430,000 CC, excluding the 300,000 CC review costs.
 
 All Canton Coin figures in this proposal assume a rate of **1 CC = €0.10** for budgeting and volatility purposes.
 
-**Adoption gates.** M2 and M3 carry an adoption gate succeeds only when its adoption events are **completely** met within the adoption gate deadline. If the adoption gate is only partly met, or not met at all, the milestone payment is not paid out. In that case, the Foundation pays only for the adoption events that were met, at the amounts in the [Adoption Based Payments table](#adoption-based-payments), and not the payment for technical delivery.
+**Adoption gates.** M2 and M3 carry an adoption gate, that succeeds only when their adoption events are **completely** met within the adoption gate deadline. If the adoption gate is only partly met, or not met at all, the milestone payment is not paid out. In that case, the Foundation pays only for the adoption events that were met, at the amounts in the [Adoption Based Payments table](#adoption-based-payments), and not the payment for technical delivery.
 
 ### Payment Breakdown by Milestone
 
@@ -265,15 +271,15 @@ All Canton Coin figures in this proposal assume a rate of **1 CC = €0.10** for
   - Audit costs: Max of **300,000 CC**, ring-fenced and pass-throug.
   - Adoption gate: up to **100,000 CC** (4.1%)
 - **Milestone 4** (Maintenance and adoption window, 12 months): **300,000 CC** (12.3%) total, released quarterly in chunks of **75,000 CC**.
-  - Adoption gate: up to **500,000 CC** (20.6%)
+  - Adoption target: up to **500,000 CC** (20.6%)
   
 - **Remaining adoption milestones:** up to **200,000 CC** (8.2%) of the 1,000,000 CC adoption cap, covering 
   - 1 additional A1 (100,000 CC) and
   - 1 additional A2 (100,000 CC).
   
-Vacuumlabs may claim them at any point from project start until the end of Milestone 4.
+Vacuumlabs may claim them until the end of Milestone 4.
 
-- **External security review:** Ring-fenced, capped at **300,000 CC**, and outside the 1,430,000 CC figure above. Released against a quote submitted to the Committee for approval once Milestone 2 scope is stable, and passed through to the reviewer in full. We take no margin on it, and anything under the cap is not drawn. This is a pass-through cost, Vacuumlabs retain no part of this payment. The Canton Foundation may pay this amount either to Vacuumlabs or directly to the audit firm.
+- **External security review:** Ring-fenced, capped at **300,000 CC**, and outside the 1,430,000 CC figure above. Released against a quote submitted to the Committee for approval once Milestone 2 is accepted, and passed through to the reviewer in full. We take no margin on it, and anything under the cap is not drawn. This is a pass-through cost, Vacuumlabs retain no part of this payment. The Canton Foundation may pay this amount either to Vacuumlabs or directly to the audit firm.
 
 ### Adoption Based Payments
 
@@ -286,6 +292,8 @@ Up to **1,000,000 CC** (41.2%), payable only on evidence, in tranches against th
 | A3  | A party other than Vacuumlabs exercises the primitive on TestNet                                                             | 50,000 CC each  | 2       | 100,000 CC (4.1%)  | TestNet update identifiers for at least one successful four leg borrow, the submitting party identifier, which must be distinct from any Vacuumlabs party, the package identity used resolving to the published package manifest, and written confirmation from a named technical contact at that party.                                                                                      |
 | A4  | A party other than Vacuumlabs exercises the primitive on MainNet                                         | 100,000 CC each | 2       | 200,000 CC (8.2%)  | MainNet update identifiers for at least one successful four leg borrow from the Vacuumlabs reference vault, the submitting party identifier, which must be distinct from any Vacuumlabs party, the package identity used resolving to the published package manifest, and written confirmation from a named technical contact at that party.                                                  |
 | A5  | An external protocol adopts the primitive and allows flash borrowing from its own vault on MainNet                           | 150,000 CC each | 2       | 300,000 CC (12.3%) | MainNet update identifiers for the creation of the protocol's vault, signed by an operator party distinct from any Vacuumlabs party, and for at least one successful four leg borrow from that vault. The package identity used must resolve to the published package manifest, with written confirmation from a named technical contact at the protocol that the vault is open to borrowers. |
+
+**Only one instance each of A1 and A2 is needed to pass the Milestone 2 adoption gate.** The second instance of each row stays claimable until the end of Milestone 4. This lets development continue without delay, while the gate still requires proof of adoption.
 
 **The package manifest is the binding artifact.** Milestone 1 publishes a manifest recording, for each release, the package name, version, package identity and DAR SHA-256. That manifest determines whether a claim uses the published packages. Qualifying reuse includes any release in the published manifest lineage, so that a claimant depending on the package by name across an upgrade lineage is not excluded.
 
