@@ -120,7 +120,7 @@ No backward compatibility impact. All code is new packages.
 
 Development spans approximately 19 weeks from project start, followed by a twelve month maintenance and adoption window.
 
-Amounts are set out under Funding, and adoption based payments sit outside the milestones.
+Amounts are set out under Funding. Milestones 2, 3 and 4 each carry an adoption gate, per the [Adoption Based Payments table](#adoption-based-payments).
 
 ### Milestone 1: Flash liquidation primitive, and the requirements that make it possible
 
@@ -179,6 +179,13 @@ _Settlement compatibility test kit:_
 - The kit and the profile presented to the Token Standards and Asset Standards SIG.
 - (Optional and unfunded): if that SIG wishes to adopt the profile as a CIP, we will support the process. No funding is attached to that outcome and no milestone depends on it.
 
+**Adoption Gate:** **200,000 CC**
+
+- At least 1 of 2 external lending or vault protocols confirming conformance against the published requirements (row A1, **100,000 CC** each), per the [Adoption Based Payments table](#adoption-based-payments).
+- At least 1 of 2 independent compatibility kit runs against a registry we did not write the fixture for, performed and published by that registry's own authors (row A2, **100,000 CC** each), per the [Adoption Based Payments table](#adoption-based-payments).
+
+**Adoption Gate Deadline:** 6 months from the beginning of Milestone 2.
+
 ### Milestone 3: Production hardening, real fee parameters, and security review
 
 **Estimated Duration:** 2 weeks
@@ -194,6 +201,12 @@ _Settlement compatibility test kit:_
 - Operator documentation covering partition sizing, disclosure handling, and what a pool operator can and cannot do, since for liveness a pool operator is trusted and for safety it is not.
 - The primitive deployed and exercised on TestNet.
 
+**Adoption Gate:** **100,000 CC** 
+
+- At least 2 parties other than Vacuumlabs exercising the primitive on TestNet (row A3, **50,000 CC** each), per the [Adoption Based Payments table](#adoption-based-payments).
+
+**Adoption Gate Deadline:** 6 months from the beginning of Milestone 3.
+
 ### Milestone 4: Maintenance and adoption window
 
 **Estimated Duration:** 12 months, following Milestone 3
@@ -205,6 +218,13 @@ _Settlement compatibility test kit:_
 - Twelve months of maintenance, covering SDK, Canton and Token Standard version upgrades, issue triage against a published response commitment, and compatibility updates as the Amulet packages and the V2 standard evolve.
 - Integration support for teams adopting the primitive or the compatibility kit.
 - A written maintenance handover plan at the end of the window, naming one of three outcomes: continued stewardship, a named successor maintainer, or archival with a clear statement of state.
+
+**Adoption Gate:** **500,000 CC**
+
+- 2 parties other than Vacuumlabs exercising the primitive on MainNet (row A4, **100,000 CC** each), per the [Adoption Based Payments table](#adoption-based-payments).
+- 2 external protocols adopting the primitive and allowing flash borrowing from their own vault on MainNet (row A5, **150,000 CC** each), per the [Adoption Based Payments table](#adoption-based-payments).
+
+**Adoption Gate Deadline:** 12 months from beginning of M4.
 
 ## Acceptance Criteria
 
@@ -228,18 +248,30 @@ Milestone specific acceptance conditions:
 
 **2,730,000 CC**
 
-**1,430,000 CC** (58.8%) fixed for development and maintenance, plus a ring-fenced **300,000 CC** ceiling for the external security review, plus up to **1,000,000 CC** (41.2%) adoption based.
+**1,130,000 CC** (46.5%) fixed for development, plus **300,000 CC** (12.3%) fixed for maintenance, plus a ring-fenced **300,000 CC** ceiling for the external security review, plus up to **1,000,000 CC** (41.2%) adoption based.
 
 The review ceiling is an upper bound. Only the reviewer's accepted quote is drawn against it, and any remainder is never requested.
 
 All Canton Coin figures in this proposal assume a rate of **1 CC = €0.10** for budgeting and volatility purposes.
 
+**Adoption gates.** M2 and M3 carry an adoption gate succeeds only when its adoption gate is **completely** met within the adoption gate deadline. If the adoption gate is only partly met, or not met at all, the milestone payment is not paid out. In that case, the Foundation pays only for the adoption events that were met, at the amounts in the [Adoption Based Payments table](#adoption-based-payments).
+
 ### Payment Breakdown by Milestone
 
 - **Milestone 1** (The primitive as a usable library, flash liquidation and the published requirements): **640,000 CC** (26.3%)
 - **Milestone 2** (Multi participant measurement, benchmark report and settlement compatibility test kit): **290,000 CC** (11.9%)
-- **Milestone 3** (Production hardening, real fee parameters, threat model): **200,000 CC** (8.2%). (Not including audit fee).
+  - Adoption gate: up to **200,000 CC** (8.2%)
+- **Milestone 3** (Production hardening, real fee parameters, threat model): **200,000 CC** (8.2%).
+  - Audit costs: Max of **300,000 CC,**, ring-fenced and pass-throug.
+  - Adoption gate: up to **100,000 CC** (4.1%)
 - **Milestone 4** (Maintenance and adoption window, 12 months): **300,000 CC** (12.3%) total, released quarterly in chunks of **75,000 CC**.
+  - Adoption gate: up to **500,000 CC** (20.6%)
+  
+- **Remaining adoption milestones:** up to **200,000 CC** (8.2%) of the 1,000,000 CC adoption cap, covering 
+  - 1 additional A1 (100,000 CC) and
+  - 1 additional A2 (100,000 CC).
+  
+Vacuumlabs may claim them at any point from project start until the end of Milestone 4.
 
 - **External security review:** Ring-fenced, capped at **300,000 CC**, and outside the 1,430,000 CC figure above. Released against a quote submitted to the Committee for approval once Milestone 2 scope is stable, and passed through to the reviewer in full. We take no margin on it, and anything under the cap is not drawn.
 
