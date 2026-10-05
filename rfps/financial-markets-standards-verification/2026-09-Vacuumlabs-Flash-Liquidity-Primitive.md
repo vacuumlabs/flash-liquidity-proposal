@@ -8,7 +8,7 @@
 - **RFP / Roadmap Area:** RFP 13, Payments and DeFi (Financial Markets, Standards & Verification)
 - **Champion:** Needs Champion
 - **Total Funding Request:** 1,430,000 CC fixed, plus a ring-fenced 300,000 CC ceiling for external security review, plus up to 1,000,000 CC adoption based
-- **Project Duration:** Approximately 19 weeks of development + 12 month maintenance
+- **Project Duration:** Up to 19 weeks of development + maximum of 12 months of adoption deadlines + 12 month maintenance and adoption window
 - **Label:** `defi-liquidity`
 
 ## Abstract
@@ -118,7 +118,7 @@ No backward compatibility impact. All code is new packages.
 
 ## Milestones and Deliverables
 
-Development spans approximately 19 weeks from project start, followed by a twelve month maintenance and adoption window.
+Development spans approximately 19 weeks from project start, followed by a twelve month maintenance.
 
 Amounts are set out under Funding. Milestones 2, 3 and 4 each carry an adoption gate, per the [Adoption Based Payments table](#adoption-based-payments).
 
@@ -153,7 +153,7 @@ _The primitive as a usable library:_
 
 ### Milestone 2: Multi participant measurement, benchmark report and settlement compatibility test kit
 
-**Estimated Duration:** 5 weeks
+**Estimated Duration:** Maximum of 6 months from the beginning of Milestone 2, set by adoption gate
 
 **Focus:** Replace structural arguments with numbers on a real multi participant deployment, so that the remaining single participant conditions of Milestone 1 are lifted and confirmation latency, contention and armed context lifetime are measured rather than argued.
 
@@ -188,7 +188,7 @@ _Settlement compatibility test kit:_
 
 ### Milestone 3: Production hardening, real fee parameters, and security review
 
-**Estimated Duration:** 2 weeks
+**Estimated Duration:** Maximum of 6 months from the beginning of Milestone 3, set by adoption gate.
 
 **Focus:** Everything between "the mechanism works" and "an institution would put liquidity behind it", closing the zero fee conditions and the standing privacy leak.
 
@@ -209,7 +209,7 @@ _Settlement compatibility test kit:_
 
 ### Milestone 4: Maintenance and adoption window
 
-**Estimated Duration:** 12 months, following Milestone 3
+**Estimated Duration:** 12 months from beginning of Milestone 4.
 
 **Focus:** Sustainability. The review process is explicit that a proposal must identify who maintains the work after the grant.
 
@@ -279,13 +279,13 @@ Vacuumlabs may claim them at any point from project start until the end of Miles
 
 Up to **1,000,000 CC** (41.2%), payable only on evidence, in tranches against the outcomes below. Each row unlocks only once the milestone that makes the outcome possible has been accepted.
 
-| Row | Adoption Milestone                                                                                                           | Deadline                         | Amount          | Max Cap | Max Total          | Evidence required                                                                                                                                                                                                                                                                                                                                                                             |
-| --- | ---------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | --------------- | ------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| A1  | An external lending or vault protocol confirms conformance against the published requirements                                | 6 months after Milestone 2 start | 100,000 CC each | 2       | 200,000 CC (8.2%)  | A written assessment from a named technical contact at the protocol, addressed to the Tech & Ops Committee, mapping each published requirement to that protocol's liquidation path, with a pass or fail recorded per requirement.                                                                                                                                                             |
-| A2  | The compatibility kit is run against a registry we did not write the fixture for, by its own authors, with results published | 6 months after Milestone 2 start | 100,000 CC each | 2       | 200,000 CC (8.2%)  | Machine readable kit output recording the kit version and commit, the registry `admin` party and `instrumentId` under test, and per case results. Published by the registry's own authors at a public location, together with a public continuous integration run the Committee can reproduce.                                                                                                |
-| A3  | A party other than Vacuumlabs exercises the primitive on TestNet                                                             | 6 months after Milestone 3 start | 50,000 CC each  | 2       | 100,000 CC (4.1%)  | TestNet update identifiers for at least one successful four leg borrow, the submitting party identifier, which must be distinct from any Vacuumlabs party, the package identity used resolving to the published package manifest, and written confirmation from a named technical contact at that party.                                                                                      |
-| A4  | A party other than Vacuumlabs exercises the primitive on MainNet                                         | End of Milestone 4 | 100,000 CC each | 2       | 200,000 CC (8.2%)  | MainNet update identifiers for at least one successful four leg borrow from the Vacuumlabs reference vault, the submitting party identifier, which must be distinct from any Vacuumlabs party, the package identity used resolving to the published package manifest, and written confirmation from a named technical contact at that party.                                                  |
-| A5  | An external protocol adopts the primitive and allows flash borrowing from its own vault on MainNet                           | End of Milestone 4               | 150,000 CC each | 2       | 300,000 CC (12.3%) | MainNet update identifiers for the creation of the protocol's vault, signed by an operator party distinct from any Vacuumlabs party, and for at least one successful four leg borrow from that vault. The package identity used must resolve to the published package manifest, with written confirmation from a named technical contact at the protocol that the vault is open to borrowers. |
+| Row | Adoption Milestone                                                                                                           | Amount          | Max Cap | Max Total          | Evidence required                                                                                                                                                                                                                                                                                                                                                                             |
+| --- | ---------------------------------------------------------------------------------------------------------------------------- | --------------- | ------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| A1  | An external lending or vault protocol confirms conformance against the published requirements                                | 100,000 CC each | 2       | 200,000 CC (8.2%)  | A written assessment from a named technical contact at the protocol, addressed to the Tech & Ops Committee, mapping each published requirement to that protocol's liquidation path, with a pass or fail recorded per requirement.                                                                                                                                                             |
+| A2  | The compatibility kit is run against a registry we did not write the fixture for, by its own authors, with results published | 100,000 CC each | 2       | 200,000 CC (8.2%)  | Machine readable kit output recording the kit version and commit, the registry `admin` party and `instrumentId` under test, and per case results. Published by the registry's own authors at a public location, together with a public continuous integration run the Committee can reproduce.                                                                                                |
+| A3  | A party other than Vacuumlabs exercises the primitive on TestNet                                                             | 50,000 CC each  | 2       | 100,000 CC (4.1%)  | TestNet update identifiers for at least one successful four leg borrow, the submitting party identifier, which must be distinct from any Vacuumlabs party, the package identity used resolving to the published package manifest, and written confirmation from a named technical contact at that party.                                                                                      |
+| A4  | A party other than Vacuumlabs exercises the primitive on MainNet                                         | 100,000 CC each | 2       | 200,000 CC (8.2%)  | MainNet update identifiers for at least one successful four leg borrow from the Vacuumlabs reference vault, the submitting party identifier, which must be distinct from any Vacuumlabs party, the package identity used resolving to the published package manifest, and written confirmation from a named technical contact at that party.                                                  |
+| A5  | An external protocol adopts the primitive and allows flash borrowing from its own vault on MainNet                           | 150,000 CC each | 2       | 300,000 CC (12.3%) | MainNet update identifiers for the creation of the protocol's vault, signed by an operator party distinct from any Vacuumlabs party, and for at least one successful four leg borrow from that vault. The package identity used must resolve to the published package manifest, with written confirmation from a named technical contact at the protocol that the vault is open to borrowers. |
 
 **The package manifest is the binding artifact.** Milestone 1 publishes a manifest recording, for each release, the package name, version, package identity and DAR SHA-256. That manifest determines whether a claim uses the published packages. Qualifying reuse includes any release in the published manifest lineage, so that a claimant depending on the package by name across an upgrade lineage is not excluded.
 
