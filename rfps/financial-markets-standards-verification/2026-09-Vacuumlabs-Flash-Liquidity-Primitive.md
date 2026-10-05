@@ -254,7 +254,7 @@ The review ceiling is an upper bound. Only the reviewer's accepted quote is draw
 
 All Canton Coin figures in this proposal assume a rate of **1 CC = €0.10** for budgeting and volatility purposes.
 
-**Adoption gates.** M2 and M3 carry an adoption gate succeeds only when its adoption gate is **completely** met within the adoption gate deadline. If the adoption gate is only partly met, or not met at all, the milestone payment is not paid out. In that case, the Foundation pays only for the adoption events that were met, at the amounts in the [Adoption Based Payments table](#adoption-based-payments).
+**Adoption gates.** M2 and M3 carry an adoption gate succeeds only when its adoption events are **completely** met within the adoption gate deadline. If the adoption gate is only partly met, or not met at all, the milestone payment is not paid out. In that case, the Foundation pays only for the adoption events that were met, at the amounts in the [Adoption Based Payments table](#adoption-based-payments), and not the payment for technical delivery.
 
 ### Payment Breakdown by Milestone
 
@@ -262,7 +262,7 @@ All Canton Coin figures in this proposal assume a rate of **1 CC = €0.10** for
 - **Milestone 2** (Multi participant measurement, benchmark report and settlement compatibility test kit): **290,000 CC** (11.9%)
   - Adoption gate: up to **200,000 CC** (8.2%)
 - **Milestone 3** (Production hardening, real fee parameters, threat model): **200,000 CC** (8.2%).
-  - Audit costs: Max of **300,000 CC,**, ring-fenced and pass-throug.
+  - Audit costs: Max of **300,000 CC**, ring-fenced and pass-throug.
   - Adoption gate: up to **100,000 CC** (4.1%)
 - **Milestone 4** (Maintenance and adoption window, 12 months): **300,000 CC** (12.3%) total, released quarterly in chunks of **75,000 CC**.
   - Adoption gate: up to **500,000 CC** (20.6%)
@@ -273,7 +273,7 @@ All Canton Coin figures in this proposal assume a rate of **1 CC = €0.10** for
   
 Vacuumlabs may claim them at any point from project start until the end of Milestone 4.
 
-- **External security review:** Ring-fenced, capped at **300,000 CC**, and outside the 1,430,000 CC figure above. Released against a quote submitted to the Committee for approval once Milestone 2 scope is stable, and passed through to the reviewer in full. We take no margin on it, and anything under the cap is not drawn.
+- **External security review:** Ring-fenced, capped at **300,000 CC**, and outside the 1,430,000 CC figure above. Released against a quote submitted to the Committee for approval once Milestone 2 scope is stable, and passed through to the reviewer in full. We take no margin on it, and anything under the cap is not drawn. This is a pass-through cost, Vacuumlabs retain no part of this payment. The Canton Foundation may pay this amount either to Vacuumlabs or directly to the audit firm.
 
 ### Adoption Based Payments
 
@@ -324,8 +324,6 @@ Specific commitments:
   - _Mitigation:_ a minimal probe in Milestone 1 gives a first number at that milestone's acceptance, and the full curve arrives in Milestone 2. Both measure rather than assume, and a negative result is an accepted outcome in each. A bad number therefore surfaces before the committee pays for the benchmark build, and before the hardening and adoption work.
 - **Liquidity or a venue on a separate synchronizer.** A flash loan cannot span synchronizers.
   - _Mitigation:_ pre-flight assignment check, explicit synchronizer pinning on submission, and pre-positioning of pool liquidity per synchronizer, with partitions as the unit. Amulet and the public venues are on the Global Synchronizer, so this affects deliberately private deployments only.
-- **Adoption risk.** Adoption depends on parties we do not control.
-  - _Mitigation:_ no milestone acceptance depends on a third party action, adoption outcomes pay only from the adoption tranche, and nothing is owed if they do not occur.
 
 ## Motivation
 
