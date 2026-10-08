@@ -136,7 +136,7 @@ _The primitive as a usable library:_
 
 - Public Apache 2.0 repository holding the pool, the borrower action interface in its own package, and the shared settlement adapter.
 - Assembly of the choice context and the disclosures as a component an application calls directly, covering the counterparties' inventory and not only the registry's rules contract.
-- Fee model in basis points of principal, stated as a formula that takes the registry's transfer configuration as an input, with a worked break even borrow size under the zero fee test conditions of this milestone.
+- Fee model in basis points of principal, stated as a formula that takes the registry's transfer configuration as an input, with a worked break even borrow size.
 - Partitioning of pool liquidity, with partition selection.
 - A re-entrancy guard on the `borrow` choice, preventing a borrower action implementation from recursively invoking `borrow`.
 - The pool balance invariant stated formally, with its pre-state, its post-state and the quantifier made explicit, scoped per partition, together with the argument that per partition invariants add up to a pool wide guarantee.
@@ -147,7 +147,7 @@ _The primitive as a usable library:_
 - One command reproduction in a single JVM process, without Docker, Postgres, Kubernetes or a local network stack, emitting the engine's own transaction trees as committed evidence.
 - A minimal latency probe, run on a second and separate deployment. Three participants on one synchronizer: pool operator, registry admin and borrower. The venue party shares the borrower's participant.
 - A provisional confirmation latency number from that probe: the median and the spread over a fixed run count, stated against the single participant baseline. This is a first number and not the benchmark. The harness, the sweep across signatory counts, traffic accounting, concurrency and context lifetime all stay in Milestone 2.
-- A minimal reference lending vault written against that published specification, in a package the pool does not depend on.
+- A minimal reference lending vault, in a package the pool does not depend on.
 - A flash liquidation implementation of the borrower action interface driving the full path, namely borrow, repay debt, receive discounted collateral, sell, repay principal plus fee, keep the surplus, in one transaction, on V2 rails, on a real participant.
 - Negative tests in which a healthy vault, and collateral discounted insufficiently to cover principal plus fee, each reject the entire transaction, leaving every balance unchanged and the liquidator holding nothing.
 - Published engineering write-up of the atomic four leg transfer result and a provisional latency number, stating in the same document the conditions the result was obtained under.
@@ -213,11 +213,11 @@ _Settlement compatibility test kit:_
 
 **Estimated Duration:** 12 months from beginning of Milestone 4.
 
-**Focus:** Sustainability. The review process is explicit that a proposal must identify who maintains the work after the grant.
+**Focus:** Sustainability of the work after the grant.
 
 **Deliverables:**
 
-- Twelve months of maintenance, covering SDK, Canton and Token Standard version upgrades, issue triage against a published response commitment, and compatibility updates as the Amulet packages and the V2 standard evolve.
+- Twelve months of maintenance, covering SDK, Canton and Token Standard version upgrades, issue triage, and compatibility updates as the Amulet packages and the V2 standard evolve.
 - Integration support for teams adopting the primitive or the compatibility kit.
 - A written maintenance handover plan at the end of the window, naming one of three outcomes: continued stewardship, a named successor maintainer, or archival with a clear statement of state.
 
@@ -268,7 +268,7 @@ All Canton Coin figures in this proposal assume a rate of **1 CC = €0.10** for
 - **Milestone 2** (Multi participant measurement, benchmark report and settlement compatibility test kit): **290,000 CC** (11.9%)
   - Adoption gate: up to **200,000 CC** (8.2%)
 - **Milestone 3** (Production hardening, real fee parameters, threat model): **200,000 CC** (8.2%).
-  - Audit costs: Max of **300,000 CC**, ring-fenced and pass-throug.
+  - Audit costs: Max of **300,000 CC**, ring-fenced and pass-through.
   - Adoption gate: up to **100,000 CC** (4.1%)
 - **Milestone 4** (Maintenance and adoption window, 12 months): **300,000 CC** (12.3%) total, released quarterly in chunks of **75,000 CC**.
   - Adoption target: up to **500,000 CC** (20.6%)
@@ -279,7 +279,7 @@ All Canton Coin figures in this proposal assume a rate of **1 CC = €0.10** for
   
 Vacuumlabs may claim them until the end of Milestone 4.
 
-- **External security review:** Ring-fenced, capped at **300,000 CC**, and outside the 1,430,000 CC figure above. Released against a quote submitted to the Committee for approval once Milestone 2 is accepted, and passed through to the reviewer in full. We take no margin on it, and anything under the cap is not drawn. This is a pass-through cost, Vacuumlabs retain no part of this payment. The Canton Foundation may pay this amount either to Vacuumlabs or directly to the audit firm.
+- **External security review:** Ring-fenced, capped at **300,000 CC**. Released against a quote submitted to the Committee for approval once Milestone 2 is accepted, and passed through to the reviewer in full. We take no margin on it, and anything under the cap is not drawn. This is a pass-through cost, Vacuumlabs retains no part of this payment. The Canton Foundation may pay this amount either to Vacuumlabs or directly to the audit firm.
 
 ### Adoption Based Payments
 
@@ -349,12 +349,7 @@ Flash liquidity removes the inventory requirement outright, so the binding const
 
 ## References
 
-- [CIP-0056](https://github.com/canton-foundation/cips/blob/main/cip-0056/cip-0056.md)
 - [CIP-0112](https://github.com/canton-foundation/cips/blob/main/cip-0112/cip-0112.md)
 - [`splice-amulet`, the Amulet packages behind Canton Coin](https://github.com/hyperledger-labs/splice/tree/main/daml/splice-amulet)
 - [Canton Token Standard API packages](https://github.com/hyperledger-labs/splice/tree/main/token-standard)
-- [`splice-token-standard-v2-test`](https://github.com/hyperledger-labs/splice/tree/main/token-standard/splice-token-standard-v2-test)
-- [Token Standard V2 validation notes](https://github.com/hyperledger-labs/splice/blob/main/token-standard/V2_VALIDATION.md)
-- [Token Standard V2 on DevNet](https://github.com/hyperledger-labs/splice/blob/main/token-standard/TOKEN_STANDARD_V2_DEVNET.md)
-- [Token Standard APIs documentation](https://docs.global.canton.network.sync.global/app_dev/token_standard/index.html)
 - [OpenZeppelin Canton Ecosystem Stack](https://github.com/canton-foundation/canton-dev-fund/pull/262)
