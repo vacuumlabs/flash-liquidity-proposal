@@ -62,7 +62,7 @@ A flash loan on Canton is not a state machine and not a loan contract, since the
 
 We also researched an alternative, an intent based pool in which incoming allocations supply the liquidity. It removes contention, but only by requiring that someone has already committed the funds, which is the standing inventory requirement flash liquidity exists to remove. We therefore did not pursue it.
 
-**Re-entrancy, and the scope of the invariant.** `borrow` is nonconsuming and its body hands control to a third party implementation, so the borrower can attempt to exercise `borrow` again from inside its own callback, on the same partition or on another one. The design therefore carries an explicit re-entrancy guard.
+**Re-entrancy, and the scope of the invariant.** `borrow` is nonconsuming and its body hands control to a third party implementation, so the borrower can attempt to exercise `borrow` again from inside its own callback, on the same partition or on another one. The design therefore carries an explicit re-entrancy guard. The invariants ensure that the flash loan succeeds only when the amount returned to the pool is equal to or exceeding the amount borrowed, plus fees.
 
 #### 2.2 The Deliverables
 
@@ -123,6 +123,8 @@ Development spans approximately 19 weeks from project start, with 12 months incl
 Amounts are set out under Funding. Milestones 2 and 3 each carry an adoption gate, per the [Adoption Based Payments table](#adoption-based-payments).
 
 Milestone 4 is the maintenance period, and its fixed payment is not gated by adoption. Maintenance requires ongoing engineering effort, so the payment for Milestone 4 is made in full whether or not its adoption targets are met. Those targets are paid separately, as adoption based payments.
+
+The primitive and the reference lending vault are deployed on MainNet in Milestone 3, before the maintenance period begins. Milestone 4 does not start until that MainNet deployment is live, so the maintenance and adoption window always runs against a MainNet deployment.
 
 ### Milestone 1: Flash liquidation primitive, and the requirements that make it possible
 
@@ -202,6 +204,7 @@ _Settlement compatibility test kit:_
 - An external security review commissioned within this milestone, with scope and quote agreed. The reviewer's own schedule sits outside our control, so the findings and our responses are published on receipt rather than inside the milestone window.
 - Operator documentation covering partition sizing, disclosure handling, and what a pool operator can and cannot do, since for liveness a pool operator is trusted and for safety it is not.
 - The primitive deployed and exercised on TestNet.
+- The reference lending vault deployed on MainNet.
 
 **Adoption Gate:** **100,000 CC** 
 
@@ -241,7 +244,7 @@ Milestone specific acceptance conditions:
 
 - **Milestone 1:** the pool and borrower action interface are public, the package manifest is published, the full test suite passes on a real participant, and the one command reproduction runs clean. The provisional latency number is published, whatever the number is. A bad number is an accepted outcome here, as it is in Milestone 2. The flash liquidation path clears end to end on a real participant, both negative tests reject as designed, and the requirements have gone out to the DeFi Protocols and Liquidity SIG.
 - **Milestone 2:** the multi participant deployment is live, and the benchmark report is published with the economic envelope stated and submitted to both SIGs. Whether either SIG grants a presentation slot is not ours to decide, so acceptance turns on submission rather than on the slot. The compatibility kit runs clean against both reference registries, the compatibility profile is published, and the kit has been run against at least one registry written outside this project where one was available to us, with that result published either way.
-- **Milestone 3:** fee arithmetic holds under non-zero parameters, the privacy leak is closed, the threat model is published with its open items closed or explicitly accepted, and the primitive is deployed and exercised on TestNet. The external security review is commissioned within this milestone, with its scope and quote agreed. Its findings and our responses are published on receipt, which may fall after the milestone closes.
+- **Milestone 3:** fee arithmetic holds under non-zero parameters, the privacy leak is closed, the threat model is published with its open items closed or explicitly accepted, the primitive is deployed and exercised on TestNet, and the reference lending vault is live on MainNet with at least one flash liquidation cleared end to end. The external security review is commissioned within this milestone, with its scope and quote agreed. Its findings and our responses are published on receipt, which may fall after the milestone closes.
 - **Milestone 4:** each period's maintenance commitments are delivered and the final handover plan is written.
 
 Milestones with adoption gates require the adoption gate events to pass completely before moving to the next milestone.
