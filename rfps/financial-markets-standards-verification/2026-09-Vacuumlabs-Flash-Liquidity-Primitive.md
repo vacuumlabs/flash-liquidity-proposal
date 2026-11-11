@@ -357,10 +357,6 @@ Flash liquidity removes the inventory requirement outright, so the binding const
 
 - [CIP-0112](https://github.com/canton-foundation/cips/blob/main/cip-0112/cip-0112.md)
 - [`splice-amulet`, the Amulet packages behind Canton Coin](https://github.com/hyperledger-labs/splice/tree/main/daml/splice-amulet)
-- [Canton Token Standard API packages](https://github.com/hyperledger-labs/splice/tree/main/token-standard)
-- [`splice-token-standard-v2-test`](https://github.com/hyperledger-labs/splice/tree/main/token-standard/splice-token-standard-v2-test)
-- [Token Standard V2 validation notes](https://github.com/hyperledger-labs/splice/blob/main/token-standard/V2_VALIDATION.md)
-- [Token Standard V2 on DevNet](https://github.com/hyperledger-labs/splice/blob/main/token-standard/TOKEN_STANDARD_V2_DEVNET.md)
 - [Token Standard APIs documentation](https://docs.global.canton.network.sync.global/app_dev/token_standard/index.html)
 - [OpenZeppelin Canton Ecosystem Stack](https://github.com/canton-foundation/canton-dev-fund/pull/262)
 - [cantonvenues.com](https://cantonvenues.com)
